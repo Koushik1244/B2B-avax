@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  @apply bg-slate-50 text-slate-900 dark:bg-biz-navy dark:text-slate-100;
+}
+
+/* Hide scrollbar for horizontal nav (still scrollable) */
+.nav-scroll-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.nav-scroll-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tables — professional density */
+.table-pro {
+  @apply w-full border-collapse text-sm;
+}
+.table-pro thead th {
+  @apply border-b border-slate-200 bg-slate-100 px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-slate-600 dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-400;
+}
+.table-pro tbody td {
+  @apply border-b border-slate-100 px-3 py-2.5 align-middle text-slate-800 dark:border-slate-800 dark:text-slate-200;
+}
+.table-pro tbody tr {
+  @apply transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50;
+}
+
+/* Panel — flat bordered region (not “card”) */
+.panel {
+  @apply border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-slate-900;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded bg-slate-300 dark:bg-slate-600;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-slate-500;
+}
+
+/* Recharts — light */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  @apply stroke-slate-200 dark:stroke-slate-700;
+}
+.recharts-text {
+  @apply fill-slate-500 dark:fill-slate-400;
+  font-size: 11px !important;
+}
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+.recharts-default-tooltip {
+  @apply rounded border border-slate-200 bg-white text-slate-900 shadow-sm dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100;
+}
+.recharts-legend-item-text {
+  @apply text-slate-600 dark:text-slate-400;
+  font-size: 11px !important;
+}
+
+/* Minimal motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

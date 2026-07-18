@@ -1,0 +1,51 @@
+{
+  "name": "encrypted-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "npx hardhat compile & npx hardhat zkit make --force && npx hardhat zkit verifiers",
+    "converter:init": "npx hardhat run scripts/converter/01_deploy-basics.ts --network fuji",
+    "converter:core": "npx hardhat run scripts/converter/02_deploy-converter.ts --network fuji",
+    "converter:register": "npx hardhat run scripts/converter/03_register-user.ts --network fuji",
+    "converter:auditor": "npx hardhat run scripts/converter/04_set-auditor.ts --network fuji",
+    "converter:faucet": "npx hardhat run scripts/converter/05_get_faucet.ts --network fuji",
+    "converter:deposit": "npx hardhat run scripts/converter/06_deposit.ts --network fuji",
+    "converter:transfer": "npx hardhat run scripts/converter/07_transfer.ts --network fuji",
+    "converter:balance": "npx hardhat run scripts/converter/08_check_balance.ts --network fuji",
+    "converter:withdraw": "npx hardhat run scripts/converter/09_withdraw.ts --network fuji",
+    "standalone:init": "npx hardhat run scripts/standalone/01_deploy-basics.ts --network fuji",
+    "standalone:core": "npx hardhat run scripts/standalone/02_deploy-standalone.ts --network fuji",
+    "standalone:register": "npx hardhat run scripts/standalone/03_register-user.ts --network fuji",
+    "standalone:auditor": "npx hardhat run scripts/standalone/04_set-auditor.ts --network fuji",
+    "standalone:mint": "npx hardhat run scripts/standalone/05_mint.ts --network fuji",
+    "standalone:balance": "npx hardhat run scripts/standalone/06_check-balance.ts --network fuji",
+    "standalone:transfer": "npx hardhat run scripts/standalone/07_transfer.ts --network fuji",
+    "standalone:burn": "npx hardhat run scripts/standalone/08_burn.ts --network fuji"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.8",
+    "@nomicfoundation/hardhat-ethers": "^3.0.8",
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "@openzeppelin/contracts": "^5.1.0",
+    "@solarity/chai-zkit": "^0.3.1",
+    "@solarity/hardhat-zkit": "^0.5.15",
+    "@typechain/hardhat": "^9.1.0",
+    "@zk-kit/baby-jubjub": "^1.0.3",
+    "dotenv": "^16.4.7",
+    "hardhat": "^2.26.3",
+    "hardhat-gas-reporter": "^2.2.2",
+    "maci-crypto": "^2.5.0",
+    "poseidon-lite": "^0.3.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-solidity": "^1.4.2",
+    "solhint": "^5.0.5",
+    "solidity-coverage": "^0.8.14"
+  },
+  "dependencies": {
+    "snarkjs": "^0.7.6"
+  }
+}

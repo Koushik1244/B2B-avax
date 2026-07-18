@@ -1,0 +1,22 @@
+node_modules/
+.env
+dist/
+.DS_Store
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment secrets — NEVER commit these
+.env
+**/.env
+server/.env
+server/eerc-backend-converter/.env
+
+# Build artifacts
+client/dist/
+server/eerc-backend-converter/cache/
+
+# OS/editor junk
+.DS_Store
+*.log
