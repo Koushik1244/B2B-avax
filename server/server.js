@@ -12,7 +12,8 @@ connectDB();
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://smart-invoicing-assistant.vercel.app'
+    'https://smart-invoicing-assistant.vercel.app',
+    'https://b2b-avax.vercel.app'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
