@@ -95,9 +95,8 @@ function ProblemSection() {
               ].map((n, i) => (
                 <div
                   key={n.t}
-                  className={`flex items-center gap-3 rounded-xl border border-rose-500/20 bg-[#12121a]/90 px-4 py-3 shadow-lg backdrop-blur ${
-                    i === 0 ? 'animate-pop-alert' : i === 1 ? 'animate-pop-alert-2' : i === 2 ? 'animate-pop-alert-3' : 'animate-pop-alert'
-                  }`}
+                  className={`flex items-center gap-3 rounded-xl border border-rose-500/20 bg-[#12121a]/90 px-4 py-3 shadow-lg backdrop-blur ${i === 0 ? 'animate-pop-alert' : i === 1 ? 'animate-pop-alert-2' : i === 2 ? 'animate-pop-alert-3' : 'animate-pop-alert'
+                    }`}
                   style={{ animationDelay: `${i * 0.35}s` }}
                 >
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-rose-500/20 text-rose-300">
@@ -192,11 +191,23 @@ export default function Landing() {
 
       <header className="sticky top-0 z-50 border-b border-white/5 bg-[#050508]/80 px-4 backdrop-blur-xl sm:px-8">
         <div className="mx-auto flex max-w-6xl items-center justify-between py-4">
-          <Link to="/" className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-violet-600 text-sm font-bold shadow-lg shadow-cyan-500/20">
-              SI
-            </div>
-            <span className="font-semibold tracking-tight text-white">Smart Invoicing</span>
+          <Link
+            to="/"
+            className="flex items-center transition hover:opacity-90"
+          >
+            {/* Light Mode */}
+            <img
+              src="/logo-dark.png"
+              alt="AutoBiz"
+              className="block h-10 w-auto dark:hidden"
+            />
+
+            {/* Dark Mode */}
+            <img
+              src="/logo-light.png"
+              alt="AutoBiz"
+              className="hidden h-10 w-auto dark:block"
+            />
           </Link>
           <div className="flex items-center gap-2 sm:gap-3">
             {user ? (
@@ -231,9 +242,6 @@ export default function Landing() {
         <section className="relative overflow-hidden pt-10 pb-16 md:pt-16 md:pb-24">
           <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-10">
             <div className="text-center lg:text-left">
-              <p className="mb-4 inline-flex rounded-full border border-cyan-500/30 bg-cyan-500/5 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-cyan-300/90">
-                Attention · Workflow · One surface
-              </p>
               <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-[3.25rem]">
                 Master Your Attention.
                 <span className="mt-1 block bg-gradient-to-r from-cyan-300 via-white to-violet-300 bg-clip-text text-transparent">
@@ -252,7 +260,7 @@ export default function Landing() {
                 </Link>
                 <Link
                   to="/register"
-                  className="text-sm font-medium text-gray-500 transition hover:text-cyan-400"
+                  className="text-sm ml-5 font-medium text-gray-500 transition hover:text-cyan-400"
                 >
                   Create an account →
                 </Link>

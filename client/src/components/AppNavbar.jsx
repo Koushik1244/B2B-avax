@@ -37,17 +37,15 @@ const NAV = [
 ];
 
 const desktopLinkClass = ({ isActive }) =>
-  `flex items-center gap-1.5 rounded-xl px-2.5 py-2 text-xs font-semibold transition-all duration-200 active:scale-[0.98] xl:gap-2 xl:px-3 xl:py-2 xl:text-sm ${
-    isActive
-      ? 'bg-gradient-to-r from-biz-accent to-blue-600 text-white shadow-md shadow-biz-accent/25 dark:from-cyan-600 dark:to-blue-600'
-      : 'text-slate-600 hover:bg-slate-100 hover:text-biz-navy dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
+  `flex items-center gap-1.5 rounded-xl px-2.5 py-2 text-xs font-semibold transition-all duration-200 active:scale-[0.98] xl:gap-2 xl:px-3 xl:py-2 xl:text-sm ${isActive
+    ? 'bg-gradient-to-r from-biz-accent to-blue-600 text-white shadow-md shadow-biz-accent/25 dark:from-cyan-600 dark:to-blue-600'
+    : 'text-slate-600 hover:bg-slate-100 hover:text-biz-navy dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
   }`;
 
 const drawerLinkClass = ({ isActive }) =>
-  `flex items-center gap-3 rounded-xl px-4 py-3.5 text-base font-semibold transition-colors ${
-    isActive
-      ? 'bg-biz-accent/15 text-biz-accent dark:bg-cyan-500/15 dark:text-cyan-300'
-      : 'text-slate-800 hover:bg-slate-100 dark:text-slate-100 dark:hover:bg-slate-800'
+  `flex items-center gap-3 rounded-xl px-4 py-3.5 text-base font-semibold transition-colors ${isActive
+    ? 'bg-biz-accent/15 text-biz-accent dark:bg-cyan-500/15 dark:text-cyan-300'
+    : 'text-slate-800 hover:bg-slate-100 dark:text-slate-100 dark:hover:bg-slate-800'
   }`;
 
 export default function AppNavbar() {
@@ -62,7 +60,7 @@ export default function AppNavbar() {
   const bellWrapRef = useRef(null);
 
   useEffect(() => {
-    const fetch = () => getUnreadCount().then(({ data }) => setUnread(data.count || 0)).catch(() => {});
+    const fetch = () => getUnreadCount().then(({ data }) => setUnread(data.count || 0)).catch(() => { });
     fetch();
     const interval = setInterval(fetch, 30000);
     return () => clearInterval(interval);
@@ -109,9 +107,8 @@ export default function AppNavbar() {
       <HiOutlineBell className="mx-auto h-5 w-5" />
       {unread > 0 && (
         <span
-          className={`absolute -right-0.5 -top-0.5 flex h-4 min-w-[1rem] items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white ${
-            bellOpen ? '' : 'animate-pulse md:animate-none'
-          }`}
+          className={`absolute -right-0.5 -top-0.5 flex h-4 min-w-[1rem] items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white ${bellOpen ? '' : 'animate-pulse md:animate-none'
+            }`}
         >
           {unread > 99 ? '99+' : unread}
         </span>
@@ -139,17 +136,21 @@ export default function AppNavbar() {
 
               <Link
                 to="/dashboard"
-                className="group flex min-w-0 shrink items-center gap-2 sm:gap-2.5 rounded-xl py-1 pr-1 transition hover:opacity-90 sm:pr-2"
+                className="group flex items-center transition hover:opacity-90"
               >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-biz-accent to-indigo-700 text-xs font-black text-white shadow-lg shadow-biz-accent/30 dark:from-cyan-500 dark:to-blue-700 sm:h-10 sm:w-10 sm:text-sm">
-                  AB
-                </span>
-                <span className="flex min-w-0 flex-col">
-                  <span className="truncate text-sm font-bold tracking-tight text-biz-navy dark:text-white">AutoBiz</span>
-                  <span className="hidden truncate text-[10px] font-medium uppercase tracking-wider text-biz-muted dark:text-slate-400 sm:block">
-                    Smart Invoicing
-                  </span>
-                </span>
+                {/* Light Mode Logo */}
+                <img
+                  src="/logo-light.png"
+                  alt="AutoBiz"
+                  className="block h-10 w-auto dark:hidden"
+                />
+
+                {/* Dark Mode Logo */}
+                <img
+                  src="/logo-dark.png"
+                  alt="AutoBiz"
+                  className="hidden h-10 w-auto dark:block"
+                />
               </Link>
             </div>
 
@@ -239,17 +240,15 @@ export default function AppNavbar() {
       >
         <button
           type="button"
-          className={`absolute inset-0 bg-slate-900/50 backdrop-blur-[2px] transition-opacity duration-200 ${
-            mobileNavOpen ? 'opacity-100' : 'opacity-0'
-          }`}
+          className={`absolute inset-0 bg-slate-900/50 backdrop-blur-[2px] transition-opacity duration-200 ${mobileNavOpen ? 'opacity-100' : 'opacity-0'
+            }`}
           aria-label="Close menu"
           tabIndex={mobileNavOpen ? 0 : -1}
           onClick={() => setMobileNavOpen(false)}
         />
         <aside
-          className={`absolute left-0 top-0 flex h-full w-[min(100%,20rem)] max-w-[85vw] flex-col border-r border-slate-200 bg-white shadow-2xl transition-transform duration-200 ease-out dark:border-slate-700 dark:bg-biz-slate ${
-            mobileNavOpen ? 'translate-x-0' : '-translate-x-full'
-          }`}
+          className={`absolute left-0 top-0 flex h-full w-[min(100%,20rem)] max-w-[85vw] flex-col border-r border-slate-200 bg-white shadow-2xl transition-transform duration-200 ease-out dark:border-slate-700 dark:bg-biz-slate ${mobileNavOpen ? 'translate-x-0' : '-translate-x-full'
+            }`}
         >
           <div className="flex items-center justify-between border-b border-slate-100 px-4 py-4 dark:border-slate-800">
             <span className="text-sm font-bold text-biz-navy dark:text-white">Navigate</span>

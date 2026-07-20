@@ -32,7 +32,11 @@ export default function Register() {
     <div className="min-h-screen bg-[#0f0f0f] flex items-center justify-center px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="w-12 h-12 rounded-2xl bg-indigo-600 flex items-center justify-center text-lg font-bold mx-auto mb-4">SI</div>
+          <img
+            src="/logo-dark.png"
+            alt="AutoBiz"
+            className="block mb-5 h-20 w-auto mx-auto dark:hidden"
+          />
           <h1 className="text-2xl font-bold text-white">Create account</h1>
           <p className="text-gray-500 text-sm mt-1">Start managing invoices smarter</p>
         </div>

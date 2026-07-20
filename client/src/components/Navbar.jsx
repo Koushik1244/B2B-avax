@@ -5,8 +5,8 @@ import { useTheme } from '../context/ThemeContext'; // import ThemeContext
 const navLinks = [
   { to: '/dashboard', label: 'Dashboard' },
   { to: '/customers', label: 'Customers' },
-  { to: '/invoices',  label: 'Invoices'  },
-  { to: '/about',     label: 'About'     },
+  { to: '/invoices', label: 'Invoices' },
+  { to: '/about', label: 'About' },
 ];
 
 export default function Navbar() {
@@ -15,9 +15,9 @@ export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleLogout = () => { 
-    logout(); 
-    navigate('/'); 
+  const handleLogout = () => {
+    logout();
+    navigate('/');
   };
 
   return (
@@ -35,10 +35,9 @@ export default function Navbar() {
               key={to}
               to={to}
               className={`px-3 py-1.5 rounded-md text-sm font-medium whitespace-nowrap transition 
-                ${
-                  location.pathname === to
-                    ? 'bg-indigo-50 text-indigo-700 dark:bg-biz.navy dark:text-white'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-biz.navy'
+                ${location.pathname === to
+                  ? 'bg-indigo-50 text-indigo-700 dark:bg-biz.navy dark:text-white'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-biz.navy'
                 }`}
             >
               {label}
