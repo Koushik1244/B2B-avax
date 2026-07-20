@@ -195,12 +195,6 @@ export default function Landing() {
             to="/"
             className="flex items-center transition hover:opacity-90"
           >
-            {/* Light Mode */}
-            <img
-              src="/logo-dark.png"
-              alt="AutoBiz"
-              className="block h-10 w-auto dark:hidden"
-            />
 
             {/* Dark Mode */}
             <img
