@@ -198,7 +198,7 @@ export default function Landing() {
 
             {/* Dark Mode */}
             <img
-              src="/logo-light.png"
+              src="/logo-dark.png"
               alt="AutoBiz"
               className="hidden h-10 w-auto dark:block"
             />
